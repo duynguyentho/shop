@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Categories;
 use DateTime;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Redirect;
 
 class CategoriesController extends Controller
@@ -12,48 +13,56 @@ class CategoriesController extends Controller
     public function display(){
         $categories = Categories::all();
     }
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Categories::orderBy('id','desc')->get();
-        return view('admin.categories')->with('categories',$categories);
-    }
-    public function deleteChecked(Request $request)
-    {
-        # code...
-        $data= $request->input('ck');
-        if(isset($data))
-            foreach($data as $id){
-                Categories::where('id','=', $id)->delete();
-            }
-        return redirect('admin/category');
+        $categories = Categories::latest()->get();
+        //dd($request->ajax());
+        if ($request->ajax()) {
+            $data = Categories::latest()->get();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+   
+                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editBook">Edit</a>';
+   
+                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteBook">Delete</a>';
+    
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+      
+        return view('admin.categories',compact('categories'));
     }
     public function store(Request $request)
     {
-        # code...
-        $data = $request->except('_token');
-        $categories = Categories::updateOrCreate($data);
-        print_r($categories);
-        return back();
+        if($request->category_id){
+            $data = $request->all();
+            $data['updated_at'] = new DateTime();
+            Categories::find($request->category_id)->update($data);
+        }else{
+            $created_at = new DateTime();
+            Categories::updateOrCreate(
+                ['name' => $request->name],
+                ['created_at'=> $created_at]
+                );     
+        }
+        return response()->json(['success'=>'Book saved successfully.']);
+    }
+    public function update(Request $request, $id){
+        $data = Categories::find($id)->update($request->all());
+        return response()->json(['success'=>'Thành công']);
     }
     public function edit($id)
     {
-        $categories=Categories::find($id);
-        print_r($categories);
-    }
-    public function update(Request $request, $id)
-    {
-        $categories=Categories::find($id)->update($id);
-        return response()->json([
-            'data'=>$categories,
-            'categories' => $request->all(),
-            'id' => $id,
-            'message'=>'Cập nhật thành công'],200);
+        $category = Categories::find($id);
+        return response()->json($category);
     }
     public function destroy($id)
     {
         Categories::findOrFail($id)->delete();
-        echo "<script>alert($id)</script>";
-        return response()->json(['data'=>'removed'],200);
+        return response()->json(['data'=>'removed']);
     }
 
 }

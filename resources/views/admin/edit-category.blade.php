@@ -1,24 +1,24 @@
-<div class="modal fade" id="modal-edit">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<form action="" id="form-edit"  method="POST" role="form">
-				@csrf
-				<div class="modal-header">
-					<h4 class="modal-title">Cập nhật</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">
-
-					<div class="form-group">
-						<label for="">Tên danh mục</label>
-						<input type="text" class="form-control" name="name" id="name-edit" placeholder="Nhập tên danh mục">
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary">Edit</button>
-				</div>
-			</form>
-		</div>
-	</div>
+<div class="modal fade" id="ajaxModel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modelHeading"></h4>
+            </div>
+            <div class="modal-body">
+                <form id="bookForm" name="bookForm" class="form-horizontal">
+                   <input type="hidden" name="category_id" id="category_id">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Title" value="" maxlength="50" required="">
+                        </div>
+                    </div>    
+                    <div class="col-sm-offset-2 col-sm-10">
+                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Save changes
+                     </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

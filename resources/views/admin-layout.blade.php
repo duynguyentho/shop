@@ -468,9 +468,7 @@
     {{-- Jquery --}}
     <script src="{{asset('admin-template/plugins/jquery/jquery.min.js')}}}"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
-    <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
-
+    @yield('script')
 </html>

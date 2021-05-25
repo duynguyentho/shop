@@ -23,6 +23,6 @@ Route::group(['prefix'=> '/admin', 'middleware'=>'auth'], function(){
     Route::get('/',function(){return view('welcome');});
     Route::get('/home','AdminController@index')->name('home');
     Route::get('logout','AdminController@logout')->name('logout');
-    Route::resource('/category',CategoriesController::class);
+    Route::resource('category',CategoriesController::class);
     Route::get('/deleteChecked','CategoriesController@deleteChecked');
 });
