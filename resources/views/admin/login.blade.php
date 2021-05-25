@@ -39,10 +39,10 @@
                                 <form method="post" action="" class="mt-5 mb-5 login-input">
                                    {{ csrf_field() }}
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control" placeholder="Email">
+                                        <input type="email" name="email" class="form-control" placeholder="Email" value="duy@gmail.com">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control" placeholder="Password">
+                                        <input type="password" name="password" class="form-control" placeholder="Password" value="123">
                                     </div>
                                     <button type="submit" class="btn login-form__btn submit w-100">Sign In</button>
                                 </form>

@@ -29,7 +29,7 @@
                                         <td>{{$rows->name}}</td>
                                         <td>{{$rows->created_at}}</td>
                                         <td>{{isset($rows->updated_at) ? $rows->updated_at : ''}}</td>
-                                        <td><button data-url="{{ route('category.update',$rows->id)}}" type="button" data-target="#modal-edit" data-toggle="modal" class="btn btn-info btn-edit">Edit</button>
+                                        <td><button data-url="{{ route('category.update',$rows->id)}}" type="button" value="{{$rows->id}}" data-target="#modal-edit" data-toggle="modal" class="btn btn-info btn-edit">Edit</button>
                                             <button data-url="{{ route('category.destroy',$rows->id) }}"​ data-id="{{$rows->id}}"  type="button" data-target="#delete" id="delete"  class="btn btn-danger btn-delete">Delete</button>
                                     </tr>
                                     @endforeach
@@ -37,7 +37,6 @@
                             <input type="submit" class="btn mb-1 btn-flat btn-danger" value="Delete">
                         </form>
                     </div>
-                    <button id="mew">xxxxxxxxxx</button>
                     @include('admin.edit-category')
                     @include('admin.add-category')
                     <script type="text/javascript" charset="utf-8">

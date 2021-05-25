@@ -3,7 +3,27 @@ $(document).ready(function(){
             alert("you");
         });
     // add category
-    
+    $('#form-add').submit(function(e){
+        e.preventDefault();
+        var url = $(this).attr('data-url');
+        console.log(url);
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: {
+                name: $('#name-add').val(),
+            },
+            success: function(response) {
+                toastr.success(response.message);
+                $('#modal-add').modal('hide');
+                console.log(response.data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                //xử lý lỗi tại đây
+                alert("Lỗi");
+            }
+            })
+        })
         // 
         // 
     $('.btn-delete').click(function(){

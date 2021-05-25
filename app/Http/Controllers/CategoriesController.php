@@ -33,15 +33,12 @@ class CategoriesController extends Controller
         $data = $request->except('_token');
         $categories = Categories::updateOrCreate($data);
         print_r($categories);
-        return response()->json([
-            'data' => $categories,
-        ],200); // 200 là mã lỗi
+        return back();
     }
     public function edit($id)
     {
         $categories=Categories::find($id);
-        echo($categories);
-        return response()->json(['data'=>$categories],200); // 200 là mã lỗi
+        print_r($categories);
     }
     public function update(Request $request, $id)
     {
