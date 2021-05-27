@@ -267,21 +267,19 @@
                             <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Danh mục sản phẩm</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{route('category.index')}}">Blank</a></li>
-                            <li><a href="./layout-one-column.html">One Column</a></li>
-                            <li><a href="./layout-two-column.html">Two column</a></li>
-                            <li><a href="./layout-compact-nav.html">Compact Nav</a></li>
-                            <li><a href="./layout-vertical.html">Vertical</a></li>
-                            <li><a href="./layout-horizontal.html">Horizontal</a></li>
-                            <li><a href="./layout-boxed.html">Boxed</a></li>
-                            <li><a href="./layout-wide.html">Wide</a></li>
-                            
-                            
-                            <li><a href="./layout-fixed-header.html">Fixed Header</a></li>
-                            <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
+                            <li><a href="{{route('category.index')}}">Category</a></li>
+                            <li><a href="./layout-one-column.html">Thống kê</a></li>
                         </ul>
                     </li>
-                    <li class="nav-label">Apps</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Products</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./app-profile.html">Products</a></li>
+                            <li><a href="./app-calender.html">Thống kê</a></li>
+                        </ul>
+                    </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-envelope menu-icon"></i> <span class="nav-text">Email</span>
@@ -290,15 +288,6 @@
                             <li><a href="./email-inbox.html">Inbox</a></li>
                             <li><a href="./email-read.html">Read</a></li>
                             <li><a href="./email-compose.html">Compose</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Profile</a></li>
-                            <li><a href="./app-calender.html">Calender</a></li>
                         </ul>
                     </li>
                     <li>

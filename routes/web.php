@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware'=>'guest'], function(){
     Route::match(['get', 'post'], 'login',['as' => 'login', 'uses' => 'AdminController@login']);
-    Route::any('/', 'AdminController@login');
 });
+// Admin
 Route::group(['prefix'=> '/admin', 'middleware'=>'auth'], function(){
     Route::get('/',function(){return view('welcome');});
     Route::get('/home','AdminController@index')->name('home');
@@ -26,3 +26,5 @@ Route::group(['prefix'=> '/admin', 'middleware'=>'auth'], function(){
     Route::resource('category',CategoriesController::class);
     Route::get('/deleteChecked','CategoriesController@deleteChecked');
 });
+// Home
+Route::get('/', 'HomeController@index')->name('home');
