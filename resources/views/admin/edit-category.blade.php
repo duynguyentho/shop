@@ -5,7 +5,7 @@
                 <h4 class="modal-title" id="modelHeading"></h4>
             </div>
             <div class="modal-body">
-                <form id="bookForm" name="bookForm" class="form-horizontal">
+                <form id="bookForm" name="bookForm" class="form-horizontal" enctype="multipart/form-data">
                    <input type="hidden" name="category_id" id="category_id">
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Title</label>

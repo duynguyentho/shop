@@ -13,12 +13,17 @@ class CateSeeder extends Seeder
     {
         //
         $data = [
-            ['id'=>1, 'name' => 'Điện thoại', 'created_at' => new DateTime()],
-            ['id'=>2, 'name' => 'Máy tính bảng', 'created_at' => new DateTime()],
-            ['id'=>3, 'name' => 'Laptop', 'created_at' => new DateTime()],
-            ['id'=>4, 'name' => 'PC Gaming', 'created_at' => new DateTime()],
-            ['id'=>5, 'name' => 'Đồng hồ', 'created_at' => new DateTime()],
-            ['id'=>6, 'name' => 'Phụ kiện', 'created_dat' => new DateTime()]
+            ['id'=>1, 'name' => 'affogato', 'created_at' => new DateTime()],
+            ['id'=>2, 'name' => 'Caffè Americano', 'created_at' => new DateTime()],
+            ['id'=>3, 'name' => 'Caffè latte', 'created_at' => new DateTime()],
+            ['id'=>4, 'name' => 'Coffee milk', 'created_at' => new DateTime()],
+            ['id'=>5, 'name' => 'Café mocha', 'created_at' => new DateTime()],
+            ['id'=>6, 'name' => 'Cappuccino', 'created_dat' => new DateTime()],
+            ['id'=>7, 'name' => 'Espresso', 'created_dat' => new DateTime()],
+            ['id'=>8, 'name' => 'Iced coffee', 'created_dat' => new DateTime()],
+            ['id'=>9, 'name' => 'Instant coffee', 'created_dat' => new DateTime()],
+            ['id'=>10, 'name' => 'Mocha', 'created_dat' => new DateTime()],
+            ['id'=>11, 'name' => 'black coffee', 'created_dat' => new DateTime()],
         ];
         DB::table('categories')->insert($data);
     }

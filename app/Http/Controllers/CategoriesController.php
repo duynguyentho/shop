@@ -16,7 +16,6 @@ class CategoriesController extends Controller
     public function index(Request $request)
     {
         $categories = Categories::latest()->get();
-        //dd($request->ajax());
         if ($request->ajax()) {
             $data = Categories::latest()->get();
             return Datatables::of($data)
@@ -48,7 +47,7 @@ class CategoriesController extends Controller
                 ['created_at'=> $created_at]
                 );     
         }
-        return response()->json(['success'=>'Book saved successfully.']);
+        return response()->json(['success'=>'Category saved successfully.']);
     }
     public function update(Request $request, $id){
         $data = Categories::find($id)->update($request->all());
@@ -64,5 +63,4 @@ class CategoriesController extends Controller
         Categories::findOrFail($id)->delete();
         return response()->json(['data'=>'removed']);
     }
-
 }

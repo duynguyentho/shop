@@ -10,13 +10,15 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('admin-template/imagesfavicon.png')}}">
     <!-- Pignose Calender -->
+    {{-- <script src="{{asset('ckeditor/ckeditor.js')}}"></script> --}}
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <link href="{{asset('admin-template/plugins/pg-calendar/css/pignose.calendar.min.css')}}" rel="stylesheet">
     <!-- Chartist -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('admin-template/plugins/chartist/css/chartist.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin-template/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css')}}">
     <!-- Custom Stylesheet -->
     <link href="{{asset('admin-template/css/style.css')}}" rel="stylesheet">
-
 </head>
 
 <body>
@@ -276,7 +278,7 @@
                             <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Products</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Products</a></li>
+                            <li><a href="{{route('product.index')}}">Products</a></li>
                             <li><a href="./app-calender.html">Thống kê</a></li>
                         </ul>
                     </li>

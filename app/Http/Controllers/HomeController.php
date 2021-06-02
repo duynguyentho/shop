@@ -10,6 +10,7 @@ class HomeController extends Controller
     public function index()
     {
         # code...
-        return view('home');
+        $active="home";
+        return view('home.home')->with('active',$active);
     }
 }

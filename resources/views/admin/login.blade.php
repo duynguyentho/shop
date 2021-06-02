@@ -35,7 +35,6 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                                 <a class="text-center" href="index.html"> <h4>LOGIN</h4></a>
-        
                                 <form method="post" action="" class="mt-5 mb-5 login-input">
                                    {{ csrf_field() }}
                                     <div class="form-group">
@@ -46,7 +45,7 @@
                                     </div>
                                     <button type="submit" class="btn login-form__btn submit w-100">Sign In</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.html" class="text-primary">Sign Up</a> now</p>
+                                <p class="mt-5 login-form__footer">Dont have account? <a href="{{route('register')}}" class="text-primary">Sign Up</a> now</p>
                             </div>
                         </div>
                     </div>

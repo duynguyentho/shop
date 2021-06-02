@@ -47,6 +47,7 @@
             processing: true,
             serverSide: true,
             ajax: "{{route('category.index')}}",
+            lengthMenu: [5, 10, 15, 50],
             columns:[
                 {data: 'id'},
                 { data: 'name' },
