@@ -48,7 +48,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('product.index') }}",
-                lengthMenu: [5, 10, 15, 50],
+                lengthMenu: [10, 15, 50],
                 columns: [{
                         data: 'id'
                     },
@@ -86,6 +86,7 @@
             });
 
             $('#create').click(function() {
+                $('#bookForm').trigger("reset");
                 $.get("{{ route('product.index') }}", function(data) {
                     $('#saveBtn').val("create-book");
                     $('#book_id').val('');
@@ -96,6 +97,7 @@
                 })
             });
             $('body').on('click', '.editProduct', function() {
+                $('#bookForm').trigger("reset");
                 var id = $(this).data('id');
                 $.get("{{ route('product.index') }}" + '/' + id + '/edit', function(data) {
                     $('#ajaxModel').modal('show');
@@ -105,13 +107,13 @@
                     $('#name').val(data.product.name);
                     $('#price').val(data.product.price);
                     $('#discount').val(data.product.discount);
-                    $('#description').val(data.product.description);
+                    $('#ck').val(data.product.description);
                     if(data.product.special == 1){
                         $("#special").prop("checked", true);
                     }else{
                         $("#special").prop("checked", false);
                     }
-                    $('.chk').prop("checked",false);
+                    console.log(data.product.image)
                     for(let i = 0 ; i < data.cate_pro.length;i++){
                         if(data.cate_pro[i] != undefined){
                             $(`#cate-${data.cate_pro[i].category_id}`).prop("checked",true);
@@ -123,16 +125,20 @@
                     }
                 })  
             });
-            $('#saveBtn').click(function(e) {
+            $('#bookForm').submit(function(e) {
                 e.preventDefault();
-                $(this).html('Save');
+                // file upload
+                let formData = new FormData(this);
                 $.ajax({
-                    data: $('#bookForm').serialize(),
+                    data: formData,
                     url: "{{ route('product.store') }}",
                     type: "POST",
                     dataType: 'json',
+                    contentType: false,
+                    processData: false,
                     success: function(data) {
-                        $('#bookForm').trigger("reset");
+                        console.log(formData);
+                        $(this).trigger("reset");
                         $('#ajaxModel').modal('hide');
                         table.draw();
                     },

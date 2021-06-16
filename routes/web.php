@@ -29,6 +29,11 @@ Route::group(['prefix'=> '/admin', 'middleware'=>'auth'], function(){
 });
 // Home
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/special','SpecialController@index')->name('special');
-Route::get('/menu','MenuController@index')->name('menu');
+Route::view('special','home.special',['categories'=> App\Categories::inRandomOrder()->limit(6)->get(),'active' => 'special'])->name('special');
+Route::view('menu','home.menu',['categories'=> App\Categories::orderBy('name')->get()->take(11),'active' => 'menu', 'products' => App\Products::orderBy('id')->get()->take(5)])->name('menu');
+Route::get('/products','ProductsController@getproducts');
+Route::get('/product/{id}','ProductsController@detail');
 Route::get('/contact','ContactController@index')->name('contact');
+Route::post('/add-cart','CartController@add');
+Route::get('/cart','CartController@index');
+Route::get('delete-item/{id}','CartController@deleteItem');

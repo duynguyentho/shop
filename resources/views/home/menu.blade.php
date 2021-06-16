@@ -26,64 +26,27 @@
               <nav class="tm-side-menu">
                 <ul>
                   @foreach ($categories as $items)
-                  <li><a id="cat-{{$items->id}}" href="#">{{$items->name}}</a></li>
+                  <li><a id="cat-{{$items->id}}" class="category" style="cursor: pointer;">{{$items->name}}</a></li>
                   @endforeach
                 </ul>              
               </nav>    
-              <img src="frontend/img/vertical-menu-bg.png" alt="Menu bg" class="tm-side-menu-bg">
+              <img src="{{asset('frontend/img/vertical-menu-bg.png')}}" alt="Menu bg" class="tm-side-menu-bg">
             </div>  
           </div>            
-          <div class="tm-menu-product-content col-lg-9 col-md-9"> <!-- menu content -->
+          <div class="tm-menu-product-content col-lg-9 col-md-9" id="productData"> <!-- menu content -->
+            @foreach ($products as $item)
             <div class="tm-product">
-              <img src="frontend/img/menu-1.jpg" alt="Product">
+              <img src="{{asset('/storage/uploads/products/'.$item->image)}}" style="width:136px;" alt="Product">
               <div class="tm-product-text">
-                <h3 class="tm-product-title">Americano 1</h3>
-                <p class="tm-product-description">Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque. Red ipsum.</p>
+                <h3 class="tm-product-title"><a href="{{url('product/'.$item->id)}}">{{$item->name}}</a></h3>
+                <p class="tm-product-description">{{$item->description}}</p>
               </div>
               <div class="tm-product-price">
-                <a href="#" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>30</a>
+                <a href="{{url('add-cart/'.$item->id)}}" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>{{$item->price}}</a>
               </div>
             </div>
-            <div class="tm-product">
-              <img src="frontend/img/menu-2.jpg" alt="Product">
-              <div class="tm-product-text">
-                <h3 class="tm-product-title">Americano 2</h3>
-                <p class="tm-product-description">Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque. Red ipsum.</p>
-              </div>
-              <div class="tm-product-price">
-                <a href="#" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>20</a>
-              </div>
-            </div>
-            <div class="tm-product">
-              <img src="frontend/img/menu-3.jpg" alt="Product">
-              <div class="tm-product-text">
-                <h3 class="tm-product-title">Americano 3</h3>
-                <p class="tm-product-description">Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque. Red ipsum.</p>
-              </div>
-              <div class="tm-product-price">
-                <a href="#" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>15</a>
-              </div>
-            </div>
-            <div class="tm-product">
-              <img src="frontend/img/menu-4.jpg" alt="Product">
-              <div class="tm-product-text">
-                <h3 class="tm-product-title">Americano 4</h3>
-                <p class="tm-product-description">Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque. Red ipsum.</p>
-              </div>
-              <div class="tm-product-price">
-                <a href="#" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>25</a>
-              </div>
-            </div>
-            <div class="tm-product">
-              <img src="frontend/img/menu-5.jpg" alt="Product">
-              <div class="tm-product-text">
-                <h3 class="tm-product-title">Americano 5</h3>
-                <p class="tm-product-description">Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque. Red ipsum.</p>
-              </div>
-              <div class="tm-product-price">
-                <a href="#" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>45</a>
-              </div>
-            </div>
+            @endforeach
+            
           </div>
         </div>          
       </section>

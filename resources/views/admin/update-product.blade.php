@@ -50,7 +50,9 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Details</label>
                         <div class="col-sm-12">
-                            <input type="file" value="" name="product_image" class="form-control" required>
+                            <div>
+                                <input type="file" name="image" id="image">
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
